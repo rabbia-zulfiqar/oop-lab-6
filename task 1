@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+class SavingsAccount {
+private:
+    double savingBalance;
+    static double annualInterestRate;
+public:
+    SavingsAccount(double balance) {
+        savingBalance = balance;
+    }
+    static void setAnnualInterestRate(double rate) {
+        annualInterestRate = rate;
+    }
+    void calculateMonthlyInterest() {
+        double monthlyInterest = (savingBalance * annualInterestRate) / 12.0;
+        savingBalance += monthlyInterest;
+    }
+    void displayBalance() {
+        cout << "Updated Balance: Rs. " << savingBalance << endl;
+    }
+};
+double SavingsAccount::annualInterestRate = 0;
+int main() {
+    SavingsAccount::setAnnualInterestRate(0.02);
+    SavingsAccount saver1(4000.0);
+    SavingsAccount saver2(5000.0);
+    cout << "Saver 1" << endl;
+    cout << "Initial Balance: Rs. 1000.0" << endl;
+    saver1.calculateMonthlyInterest();
+    saver1.displayBalance();
+    cout << "\nSaver 2" << endl;
+    cout << "Initial Balance: Rs. 5000.0" << endl;
+    saver2.calculateMonthlyInterest();
+    saver2.displayBalance();
+    return 0;
+}

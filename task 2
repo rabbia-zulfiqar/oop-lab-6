@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+void sumNumbers()
+ {
+    static int total = 0;
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    total = total + num;
+    cout << "The current total is " << total << endl;
+}
+int main() 
+{
+    cout << "***Static Variables***" << endl;
+    cout << "Please enter 5 numbers to be summed" << endl;
+    sumNumbers();
+    sumNumbers();
+    sumNumbers();
+    sumNumbers();
+    sumNumbers();
+    cout << "Program completed" << endl;
+    return 0;
+}
